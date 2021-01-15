@@ -8,7 +8,11 @@ process.stdin.on("data", (data) => {
   } else if (cmd === "ls") {
     const ls = require("./ls");
     ls;
-  } else {
+  } else if(cmd.slice(0,3) === "cat"){
+    const cat = require("./cat")
+
+    cat(cmd.slice(4));
+  }else{
     process.stdout.write("You typed: " + cmd);
     process.stdout.write("\nprompt >");
   }
